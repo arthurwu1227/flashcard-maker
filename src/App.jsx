@@ -11,9 +11,11 @@ function App() {
   const [cards, setCards] = useState([]);
   const [aiOn, setAiOn] = useState(false);
 
+  //object used for testing
   const testArr = [{term: "democrat", definition: "a liberal party"}, 
 {term: "republican", definition: "a conservative party"}];
 
+  //render application
   return (
     <>
       <h2>Arthur's Flashcards App</h2>

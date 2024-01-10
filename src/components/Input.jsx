@@ -6,6 +6,7 @@ export const Input = ({cardSetter, currDeck, aiToggle}) => {
     const [term, setTerm] = useState("");
     const [definition, setDefinition] = useState("");
 
+    //helper functions
     const keyDownTerm = (event) => {
         setTerm(event.target.value);
         event.preventDefault();
@@ -16,13 +17,14 @@ export const Input = ({cardSetter, currDeck, aiToggle}) => {
         event.preventDefault();
     }
 
+    //async function to handle creation of flashcards in AI assisted mode
     const aiCreateFlashcard = async () => {
         const aiDefinition = await completeMessage(term);
         cardSetter([...currDeck, {term: term, definition: aiDefinition}]);
     }
 
 
-
+    //conditional rendering: render different input UIs based on whether AI assisted mode is on or off
     if (aiToggle) {
         return (
             <>
